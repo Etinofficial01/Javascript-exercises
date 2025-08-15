@@ -88,6 +88,8 @@
         <button onclick="
             calculation = eval(calculation);
             console.log(calculation);
+
+            saveCalculation();
             ">=
         </button>
 
@@ -100,17 +102,25 @@
     <button onclick="
         calculation = ''
         console.log('Cleared');
+
+        saveCalculation();
     ">Clear</button>
 
     <p><a href="booleans.html">Next project</a></p>
 
     <script>
-        let calculation = '';
+        let calculation = localStorage.getItem('calculation') || '';
 
 
         function updateCalculation(value) {
             calculation += value;
             console.log(calculation);
+
+            saveCalculation();
+        }
+
+        function saveCalculation() {
+            localStorage.setItem('calculation', calculation);
         }
     </script>
 </body>

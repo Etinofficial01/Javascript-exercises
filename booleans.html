@@ -6,10 +6,26 @@
     <title>Booleans</title>
 </head>
 <body>
+
+    <button onclick="playGame('heads')">
+        heads
+    </button>
+
+    <button onclick="playGame('tails')">
+        tails
+    </button>
+
+    <button onclick="
+        score.wins = 0;
+        score.losses = 0;
+        score.ties = 0;
+        localStorage.removeItem('score');
+    ">Reset game</button>
     
-    <a href="rock-paper-scissors.html">Next exercise</a>
+    <p><a href="rock-paper-scissors.html">Next exercise</a></p>
 
     <script>
+        /*
         const hour = 15;
         const name = 'Emmanuel';
 
@@ -39,20 +55,31 @@
         const randomNumber = Math.random();
         console.log(randomNumber)
 
-        /*if (randomNumber < 0.5) {
+        if (randomNumber < 0.5) {
             result = 'heads';
         } else {
             result = 'tails';
         }
         */
-        const result = randomNumber < 0.5 ? 'heads' : 'tails';
+        const score = JSON.parse(localStorage.getItem('score')) || {
+            wins: 0,
+            losses: 0
+        };
 
-        const guess = 'heads';
+        function playGame (guess) {
+            const randomNumber = Math.random();
+            console.log(`Random number: ${randomNumber}`);
+            const result = randomNumber < 0.5 ? 'heads' : 'tails';
 
-        if (guess === result) {
-            console.log('You win!');
-        } else {
-            console.log('You lose!');
+            if (result === guess) {
+                score.wins++;
+                console.log(`You win! Score: ${score.wins} wins, ${score.losses} losses`);
+            } else {
+                score.losses++;
+                console.log(`You lose! Score: ${score.wins} wins, ${score.losses} losses`);
+            }
+
+            localStorage.setItem('score', JSON.stringify(score));
         }
 
     </script>
