@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM projects</title>
+</head>
+<body>
+   <input type="text" placeholder="Name" class="js-name-input" onkeydown="
+       handleKeyDown(event);">
+    
+   <button onclick="clickSubmit();">Submit</button>
+   <p class="input-text"></p>
+
+    <script>
+        function handleKeyDown(event) {
+            if(event.key === 'Enter') {
+                clickSubmit();
+            }
+        }
+
+        // Function to handle the click event of the submit button
+        function clickSubmit() {
+            const inputElement = document.querySelector('.js-name-input');
+
+            const text = inputElement.value;
+
+            document.querySelector('.input-text').innerHTML = `Your name is: ${text}`;
+        }
+    </script>
+</body>
+</html>
