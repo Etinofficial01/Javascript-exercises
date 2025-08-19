@@ -1,0 +1,14 @@
+        .js-click-btn{
+            background-color: rgb(230, 230, 230);
+            color: black;
+            border: none;
+            padding: 10px;
+            font-weight: bold;
+            cursor: pointer;
+            border-radius: 8px;
+        }
+
+        .is-toggled {
+            background-color: black;
+            color: rgb(230, 230, 230);
+        }
