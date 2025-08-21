@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced functions</title>
+</head>
+<body>
+    
+    <button class="js-start-button" onclick="
+        changeButtonText();
+        ">Start
+    </button>
+
+    <button onclick="
+        addToCart();
+    ">Add to cart</button>
+    <p class="js-added-to-cart"></p>
+
+    <button onclick="messages++">Add</button>
+    <button onclick="messages--">Remove</button>
+
+
+
+    <script>
+        let messages = 2;
+        setInterval(function() {
+            if(document.title === 'Advanced functions') {
+               document.title = `${messages} New messages`; 
+            } else {
+                document.title = 'Advanced functions';
+            }
+        }, 1000);
+
+
+        /*
+        const changeText = document.querySelector('.js-start-button');
+
+        function changeButtonText() {
+            setTimeout(function() {
+            changeText.innerHTML = 'Finished!';
+        }, 1000);
+
+        changeText.innerHTML = 'Loading...';
+        }
+        */
+        
+        /*
+        const addedToCart = document.querySelector('.js-added-to-cart');
+        function addToCart() {
+            addedToCart.innerHTML = 'Added';
+            setTimeout(function() {
+                addedToCart.innerHTML = '';
+            }, 2000);
+        }
+        */
+
+
+        /*
+        setTimeout(function() {
+            console.log('timeout');
+            console.log('timeout2');
+        }, 3000);
+
+        console.log('next line');
+
+        setInterval(function() {
+            console.log('interval');
+        }, 1000);
+
+        console.log('next line 2');
+        */
+
+        //another way to loop through an array
+        [
+            'make dinner',
+            'wash dishes',
+            'go to bed'
+        ].forEach(function(value, index) {
+            console.log(value);
+            console.log(index);
+        })
+
+        //to go to next iteration
+        /*
+        [
+            'make dinner',
+            'wash dishes',
+            'go to bed'
+        ].forEach(function(value, index) {
+            if (value === 'wash dishes') {
+                return; // skip this iteration
+            }
+            console.log(value);
+            console.log(index);
+        });
+        */
+
+        const add = function() {
+            console.log(2 + 3);
+        }
+
+        add();
+        add();
+
+        function runTwice(fun) {
+            fun();
+            fun();
+        }
+
+        runTwice(function() {
+            console.log('12b');
+        });
+        runTwice(add);
+    </script>
+</body>
+</html>
